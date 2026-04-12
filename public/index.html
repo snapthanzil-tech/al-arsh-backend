@@ -16,32 +16,19 @@
     <div class="shell">
       <aside class="sidebar">
         <div class="brand-card">
-          <div class="brand-mark" aria-hidden="true">
-            <div class="roof"></div>
-            <div class="chevrons">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="pillars">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+          <div class="brand-mark">
+            <img src="/assets/logo.jpg" alt="AL ARSH Metal Works logo" />
           </div>
-          <p class="brand-ar">الهرش للأعمال المعدنية</p>
           <h1>AL ARSH METAL WORKS</h1>
           <p class="brand-tag">The complete metal solution</p>
         </div>
 
         <nav class="nav">
           <a class="nav-link active" href="#overview">Overview</a>
-          <a class="nav-link" href="#operations">Operations</a>
-          <a class="nav-link" href="#pipeline">Pipeline</a>
-          <a class="nav-link" href="#sheet-preview">Sheet Preview</a>
+          <a class="nav-link" href="#yearly-performance">Yearly Works</a>
+          <a class="nav-link" href="#monthly-jobs">Monthly Jobs</a>
+          <a class="nav-link" href="#client-insights">Client Insights</a>
+          <a class="nav-link" href="#follow-up">Follow Up</a>
         </nav>
 
         <div class="status-card">
@@ -52,109 +39,138 @@
       </aside>
 
       <main class="content">
-        <section class="hero" id="overview">
-          <div>
-            <p class="eyebrow">Workflow First Control Room</p>
-            <h2>Full system dashboard for teams, checkpoints, ownership, and delivery control.</h2>
-            <p class="hero-copy">
-              A clean command center for operations, production follow-up, client work tracking,
-              and live Google Sheet visibility using the AL ARSH brand colors.
-            </p>
-          </div>
-          <div class="hero-meta">
-            <div class="meta-box">
-              <span>System URL</span>
-              <strong>al-arsh-backend.onrender.com</strong>
-            </div>
-            <div class="meta-box">
-              <span>Data Source</span>
-              <strong>Google Sheets Live Feed</strong>
+        <section class="hero compact-hero" id="overview">
+          <div class="hero-brand compact-brand">
+            <img src="/assets/logo.jpg" alt="AL ARSH Metal Works logo" class="hero-logo compact-logo" />
+            <div class="hero-copy">
+              <h2>AL ARSH METAL WORKS</h2>
+              <p class="hero-tagline">THE COMPLETE METAL SOLUTION</p>
+              <p class="hero-note">
+                Live executive reading of the LPO status sheet with year growth, monthly work movement,
+                top clients, emirate spread, delivery follow-up, and collection risk.
+              </p>
             </div>
           </div>
         </section>
 
-        <section class="kpi-grid" id="operations">
+        <section class="kpi-grid">
           <article class="kpi-card blue">
-            <span class="kpi-label">Teams Active</span>
-            <strong>08</strong>
-            <p>GM, department heads, supervisors, and floor staff in one flow.</p>
+            <span class="kpi-label">Total Works</span>
+            <strong id="total-works">--</strong>
+            <p>Total jobs found in the active LPO status sheet.</p>
           </article>
           <article class="kpi-card red">
-            <span class="kpi-label">Critical Checkpoints</span>
-            <strong>14</strong>
-            <p>Approval, fabrication, dispatch, and closure checkpoints visible.</p>
+            <span class="kpi-label">Total Sheet Value</span>
+            <strong id="total-amount">--</strong>
+            <p>Total amount captured across all recorded works.</p>
           </article>
           <article class="kpi-card steel">
-            <span class="kpi-label">Live Sheet Rows</span>
-            <strong id="sheet-count">--</strong>
-            <p>Auto-read from Sheet1 to keep planning and field reality aligned.</p>
+            <span class="kpi-label">Delivered Jobs</span>
+            <strong id="delivered-count">--</strong>
+            <p>Rows already marked as delivered in the live sheet.</p>
           </article>
           <article class="kpi-card blue">
-            <span class="kpi-label">Delivery Rhythm</span>
-            <strong>Daily</strong>
-            <p>Focused on fast follow-up, clean ownership, and no dead tasks.</p>
+            <span class="kpi-label">Amount Not Received</span>
+            <strong id="unpaid-amount">--</strong>
+            <p>Value not yet marked received inside the sheet.</p>
           </article>
         </section>
 
-        <section class="panel-grid" id="pipeline">
-          <article class="panel">
-            <div class="panel-head">
-              <p class="eyebrow">Modules</p>
-              <h3>System areas</h3>
-            </div>
-            <div class="module-list">
-              <div class="module-item">
-                <strong>Sales & Quotations</strong>
-                <span>Track enquiries, quotations, approvals, and revisions.</span>
-              </div>
-              <div class="module-item">
-                <strong>Production Control</strong>
-                <span>Assign ownership, workshop status, fabrication progress, and blockers.</span>
-              </div>
-              <div class="module-item">
-                <strong>Delivery & Site Work</strong>
-                <span>Dispatch, installation, completion, and client handover checkpoints.</span>
-              </div>
-              <div class="module-item">
-                <strong>Management Review</strong>
-                <span>GM visibility for delays, escalations, and team follow-up.</span>
-              </div>
-            </div>
+        <section class="kpi-grid secondary-kpi-grid">
+          <article class="kpi-card light">
+            <span class="kpi-label">First Record Year</span>
+            <strong id="first-year">--</strong>
+            <p>Starting point of the recorded LPO growth story.</p>
           </article>
-
-          <article class="panel">
-            <div class="panel-head">
-              <p class="eyebrow">Workflow</p>
-              <h3>Ownership path</h3>
-            </div>
-            <ol class="workflow-list">
-              <li>Request received and logged.</li>
-              <li>Role owner assigned with next action.</li>
-              <li>Checkpoint updated by department head.</li>
-              <li>Production or site execution monitored.</li>
-              <li>Delivery and client closure confirmed.</li>
-            </ol>
+          <article class="kpi-card light">
+            <span class="kpi-label">Peak Year</span>
+            <strong id="strongest-year">--</strong>
+            <p id="strongest-year-note">Highest work volume seen in the sheet.</p>
+          </article>
+          <article class="kpi-card light">
+            <span class="kpi-label">Top Client</span>
+            <strong id="top-client-name">--</strong>
+            <p id="top-client-note">Highest repeat client from the current records.</p>
+          </article>
+          <article class="kpi-card light">
+            <span class="kpi-label">Top Emirate</span>
+            <strong id="top-emirate-name">--</strong>
+            <p id="top-emirate-note">Main operating market based on project records.</p>
           </article>
         </section>
 
-        <section class="table-panel" id="sheet-preview">
-          <div class="panel-head">
-            <p class="eyebrow">Live Sheet Preview</p>
-            <h3>Google Sheet data from the deployed backend</h3>
-          </div>
-          <div class="table-wrap">
-            <table>
-              <thead id="sheet-head"></thead>
-              <tbody id="sheet-body">
-                <tr>
-                  <td colspan="6" class="loading">Loading live rows...</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="table-note" id="sheet-note">
-            The preview below reads from `/api/sheet-test` and shows the first rows from Sheet1.
-          </p>
+        <section class="analytics-grid" id="yearly-performance">
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Yearly Growth</p>
+              <h3>Business growth from first recorded year</h3>
+            </div>
+            <div class="year-summary slider-row" id="year-summary">
+              <div class="summary-empty">Loading yearly performance...</div>
+            </div>
+          </article>
+
+          <article class="panel" id="monthly-jobs">
+            <div class="panel-head">
+              <p class="eyebrow">Latest Year</p>
+              <h3>Month-wise job movement</h3>
+            </div>
+            <div class="month-summary slider-row" id="month-summary">
+              <div class="summary-empty">Loading monthly movement...</div>
+            </div>
+          </article>
+        </section>
+
+        <section class="detail-grid" id="client-insights">
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Top Clients</p>
+              <h3>Who is giving the most work</h3>
+            </div>
+            <div class="insight-list" id="top-clients">
+              <div class="summary-empty">Loading client insights...</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Top Projects</p>
+              <h3>Most repeated project streams</h3>
+            </div>
+            <div class="insight-list" id="top-projects">
+              <div class="summary-empty">Loading project insights...</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Emirate Split</p>
+              <h3>Where most jobs are happening</h3>
+            </div>
+            <div class="insight-list" id="top-emirates">
+              <div class="summary-empty">Loading emirate insights...</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Pending Delivery</p>
+              <h3>Highest value jobs still open</h3>
+            </div>
+            <div class="insight-list long-list" id="pending-jobs">
+              <div class="summary-empty">Loading pending delivery jobs...</div>
+            </div>
+          </article>
+
+          <article class="panel" id="follow-up">
+            <div class="panel-head">
+              <p class="eyebrow">Collection Follow Up</p>
+              <h3>Jobs still not marked received</h3>
+            </div>
+            <div class="insight-list long-list" id="unpaid-jobs">
+              <div class="summary-empty">Loading collection follow-up...</div>
+            </div>
+          </article>
         </section>
       </main>
     </div>
