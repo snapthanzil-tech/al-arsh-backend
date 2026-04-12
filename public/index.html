@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AL ARSH System Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Tajawal:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand-card">
+          <div class="brand-mark" aria-hidden="true">
+            <div class="roof"></div>
+            <div class="chevrons">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="pillars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <p class="brand-ar">الهرش للأعمال المعدنية</p>
+          <h1>AL ARSH METAL WORKS</h1>
+          <p class="brand-tag">The complete metal solution</p>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link active" href="#overview">Overview</a>
+          <a class="nav-link" href="#operations">Operations</a>
+          <a class="nav-link" href="#pipeline">Pipeline</a>
+          <a class="nav-link" href="#sheet-preview">Sheet Preview</a>
+        </nav>
+
+        <div class="status-card">
+          <p class="eyebrow">Live Backend</p>
+          <p class="status-value" id="backend-status">Checking...</p>
+          <p class="status-text">Connected to the deployed AL ARSH backend.</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="hero" id="overview">
+          <div>
+            <p class="eyebrow">Workflow First Control Room</p>
+            <h2>Full system dashboard for teams, checkpoints, ownership, and delivery control.</h2>
+            <p class="hero-copy">
+              A clean command center for operations, production follow-up, client work tracking,
+              and live Google Sheet visibility using the AL ARSH brand colors.
+            </p>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-box">
+              <span>System URL</span>
+              <strong>al-arsh-backend.onrender.com</strong>
+            </div>
+            <div class="meta-box">
+              <span>Data Source</span>
+              <strong>Google Sheets Live Feed</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="kpi-grid" id="operations">
+          <article class="kpi-card blue">
+            <span class="kpi-label">Teams Active</span>
+            <strong>08</strong>
+            <p>GM, department heads, supervisors, and floor staff in one flow.</p>
+          </article>
+          <article class="kpi-card red">
+            <span class="kpi-label">Critical Checkpoints</span>
+            <strong>14</strong>
+            <p>Approval, fabrication, dispatch, and closure checkpoints visible.</p>
+          </article>
+          <article class="kpi-card steel">
+            <span class="kpi-label">Live Sheet Rows</span>
+            <strong id="sheet-count">--</strong>
+            <p>Auto-read from Sheet1 to keep planning and field reality aligned.</p>
+          </article>
+          <article class="kpi-card blue">
+            <span class="kpi-label">Delivery Rhythm</span>
+            <strong>Daily</strong>
+            <p>Focused on fast follow-up, clean ownership, and no dead tasks.</p>
+          </article>
+        </section>
+
+        <section class="panel-grid" id="pipeline">
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Modules</p>
+              <h3>System areas</h3>
+            </div>
+            <div class="module-list">
+              <div class="module-item">
+                <strong>Sales & Quotations</strong>
+                <span>Track enquiries, quotations, approvals, and revisions.</span>
+              </div>
+              <div class="module-item">
+                <strong>Production Control</strong>
+                <span>Assign ownership, workshop status, fabrication progress, and blockers.</span>
+              </div>
+              <div class="module-item">
+                <strong>Delivery & Site Work</strong>
+                <span>Dispatch, installation, completion, and client handover checkpoints.</span>
+              </div>
+              <div class="module-item">
+                <strong>Management Review</strong>
+                <span>GM visibility for delays, escalations, and team follow-up.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <p class="eyebrow">Workflow</p>
+              <h3>Ownership path</h3>
+            </div>
+            <ol class="workflow-list">
+              <li>Request received and logged.</li>
+              <li>Role owner assigned with next action.</li>
+              <li>Checkpoint updated by department head.</li>
+              <li>Production or site execution monitored.</li>
+              <li>Delivery and client closure confirmed.</li>
+            </ol>
+          </article>
+        </section>
+
+        <section class="table-panel" id="sheet-preview">
+          <div class="panel-head">
+            <p class="eyebrow">Live Sheet Preview</p>
+            <h3>Google Sheet data from the deployed backend</h3>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead id="sheet-head"></thead>
+              <tbody id="sheet-body">
+                <tr>
+                  <td colspan="6" class="loading">Loading live rows...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note" id="sheet-note">
+            The preview below reads from `/api/sheet-test` and shows the first rows from Sheet1.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,10 +1,15 @@
 require("dotenv").config();
 
+const path = require("path");
 const express = require("express");
 const { google } = require("googleapis");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const publicDir = path.join(__dirname, "public");
+
+app.use(express.json());
+app.use(express.static(publicDir));
 
 function hasPlaceholder(value) {
   return !value || value.includes("YOUR_") || value.includes("your_");
@@ -30,11 +35,7 @@ function getSheetsClient() {
   return { auth, sheets };
 }
 
-app.get("/", (req, res) => {
-  res.json({ message: "Al Arsh backend is running" });
-});
-
-app.get("/sheet-test", async (req, res) => {
+async function handleSheetTest(req, res) {
   try {
     const { GOOGLE_SHEET_ID } = process.env;
 
@@ -71,6 +72,17 @@ app.get("/sheet-test", async (req, res) => {
       error: "Failed to read data from Google Sheet",
     });
   }
+}
+
+app.get("/api/health", (req, res) => {
+  res.json({ message: "Al Arsh backend is running" });
+});
+
+app.get("/api/sheet-test", handleSheetTest);
+app.get("/sheet-test", handleSheetTest);
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
 });
 
 app.listen(port, () => {
