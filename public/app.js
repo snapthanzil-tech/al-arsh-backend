@@ -1,3 +1,73 @@
+const DASHBOARD_PASSCODE = "2020";
+const PASSCODE_STORAGE_KEY = "al-arsh-dashboard-unlocked";
+
+function lockDashboard() {
+  document.body.classList.add("locked");
+}
+
+function unlockDashboard(overlay) {
+  document.body.classList.remove("locked");
+  window.localStorage.setItem(PASSCODE_STORAGE_KEY, "true");
+
+  if (overlay) {
+    overlay.classList.add("is-hidden");
+    overlay.setAttribute("hidden", "hidden");
+    overlay.style.display = "none";
+  }
+}
+
+function setupSignOut() {
+  const signoutButton = document.getElementById("signout-button");
+  const overlay = document.getElementById("passcode-overlay");
+  const input = document.getElementById("passcode-input");
+  const error = document.getElementById("passcode-error");
+
+  signoutButton.addEventListener("click", () => {
+    window.localStorage.removeItem(PASSCODE_STORAGE_KEY);
+    document.body.classList.add("locked");
+    overlay.hidden = false;
+    overlay.classList.remove("is-hidden");
+    overlay.style.display = "grid";
+    input.value = "";
+    error.textContent = "";
+    input.focus();
+  });
+}
+
+function initializePasscodeGate() {
+  const overlay = document.getElementById("passcode-overlay");
+  const form = document.getElementById("passcode-form");
+  const input = document.getElementById("passcode-input");
+  const error = document.getElementById("passcode-error");
+  const isUnlocked = window.localStorage.getItem(PASSCODE_STORAGE_KEY) === "true";
+
+  if (isUnlocked) {
+    unlockDashboard(overlay);
+    return true;
+  }
+
+  lockDashboard();
+  input.focus();
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (input.value === DASHBOARD_PASSCODE) {
+      error.textContent = "";
+      unlockDashboard(overlay);
+      loadHealth();
+      loadDashboardSummary();
+      return;
+    }
+
+    error.textContent = "Wrong passcode. Try again.";
+    input.value = "";
+    input.focus();
+  });
+
+  return false;
+}
+
 async function loadHealth() {
   const statusEl = document.getElementById("backend-status");
 
@@ -268,5 +338,9 @@ async function loadDashboardSummary() {
   }
 }
 
-loadHealth();
-loadDashboardSummary();
+if (initializePasscodeGate()) {
+  loadHealth();
+  loadDashboardSummary();
+}
+
+setupSignOut();
